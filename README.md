@@ -2,14 +2,10 @@
 
 This version of the exercice was done using :
 
+- Ubuntu 22.04.1
 - PHP 7.4.29
 
 ## Installation
-
-The kata uses:
-
-- [PHP 7.3 or 7.4 or 8.0+](https://www.php.net/downloads.php)
-- [Composer](https://getcomposer.org)
 
 Recommended:
 
@@ -17,20 +13,26 @@ Recommended:
 
 Clone the repository
 
-```sh
+```shell script
 git clone git@github.com:emilybache/GildedRose-Refactoring-Kata.git
+cd ./GildedRose-Wemanity/php
 ```
 
-or
+Install required env. packages with:
 
 ```shell script
-git clone https://github.com/emilybache/GildedRose-Refactoring-Kata.git
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install php7.4
+sudo apt install php7.4-xml
+sudo apt-get install php7.4-mbstring
+php -v
 ```
 
-Install all the dependencies using composer
+Install all the project dependencies using composer:
 
 ```shell script
-cd ./GildedRose-Refactoring-Kata/php
 composer install
 ```
 
