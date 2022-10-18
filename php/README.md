@@ -1,7 +1,8 @@
-# GildedRose Kata - PHP Version
+# GildedRose Kata - PHP Version - Arthur Deryckere
 
-See the [top level readme](../README.md) for general information about this exercise. This is the PHP version of the
-GildedRose Kata.
+This version of the exercice was done using :
+
+- PHP 7.4.29
 
 ## Installation
 
@@ -33,16 +34,6 @@ cd ./GildedRose-Refactoring-Kata/php
 composer install
 ```
 
-## Dependencies
-
-The project uses composer to install:
-
-- [PHPUnit](https://phpunit.de/)
-- [ApprovalTests.PHP](https://github.com/approvals/ApprovalTests.php)
-- [PHPStan](https://github.com/phpstan/phpstan)
-- [Easy Coding Standard (ECS)](https://github.com/symplify/easy-coding-standard)
-- [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/wiki)
-
 ## Folders
 
 - `src` - contains the two classes:
@@ -63,13 +54,6 @@ project run:
 
 ```shell script
 composer test
-```
-
-A Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias pu="composer test"`), the same
-PHPUnit `composer test` can be run:
-
-```shell script
-pu
 ```
 
 ### Tests with Coverage Report
@@ -94,28 +78,6 @@ To check code, but not fix errors:
 
 ```shell script
 composer check-cs
-``` 
-
-On Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias cc="composer check-cs"`), the same
-PHPUnit `composer check-cs` can be run:
-
-```shell script
-cc
-```
-
-### Fix Code
-
-ECS provides may code fixes, automatically, if advised to run --fix, the following script can be run:
-
-```shell script
-composer fix-cs
-```
-
-On Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias fc="composer fix-cs"`), the same
-PHPUnit `composer fix-cs` can be run:
-
-```shell script
-fc
 ```
 
 ## Static Analysis
@@ -125,12 +87,3 @@ PHPStan is used to run static analysis checks:
 ```shell script
 composer phpstan
 ```
-
-On Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias ps="composer phpstan"`), the same
-PHPUnit `composer phpstan` can be run:
-
-```shell script
-ps
-```
-
-**Happy coding**!
