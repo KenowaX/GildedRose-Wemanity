@@ -10,9 +10,11 @@ use GildedRose\Items\UpdatableInterface;
 class BaseItem implements UpdatableInterface
 {
     protected GoblinItem $itemData;
+    protected bool $isConjured;
 
     protected function __construct(GoblinItem $itemData)
     {
+        $this->isConjured = self::isConjured($itemData);
         $this->itemData = $itemData;
     }
 
@@ -31,8 +33,16 @@ class BaseItem implements UpdatableInterface
         }
     }
 
+    protected static function isConjured(GoblinItem $itemData): bool
+    {
+        return stripos($itemData->name, 'conjured') !== false;
+    }
+
     public function Update()
     {
+        if ($this->isConjured)
+            $this->updateQuality();
+
         $this
             ->updateQuality()
             ->updateSellIn()
