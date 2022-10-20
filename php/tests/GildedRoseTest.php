@@ -118,4 +118,14 @@ class GildedRoseTest extends TestCase
         $gildedRose->updateQuality();
         $this->assertEquals(50, $items[0]->quality);
     }
+
+    public function testAConjuredItemLosesTwiceTheQuality()
+    {
+        $quality = 10;
+        $sell_in = 3;
+        $items = [new Item("Conjured Item", $sell_in, $quality)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(8, $items[0]->quality);
+    }
 }
