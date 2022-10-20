@@ -20,17 +20,13 @@ class BaseItem implements UpdatableInterface
 
     public static function create(GoblinItem $itemData): BaseItem
     {
-        switch($itemData->name)
-        {
-            case AgedBrie::NAME:
-                return new AgedBrie($itemData);
-            case Sulfuras::NAME:
-                return new Sulfuras($itemData);
-            case BackstagePasses::NAME:
+        if (stripos($itemData->name, AgedBrie::NAME) !== false)
+            return new AgedBrie($itemData);
+        if (stripos($itemData->name, Sulfuras::NAME) !== false)
+            return new Sulfuras($itemData);
+        if (stripos($itemData->name, BackstagePasses::NAME) !== false)
                 return new BackstagePasses($itemData);
-            default:
-                return new BaseItem($itemData);
-        }
+        return new BaseItem($itemData);
     }
 
     protected static function isConjured(GoblinItem $itemData): bool
