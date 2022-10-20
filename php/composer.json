@@ -26,6 +26,7 @@
         "checkcode": "phpcs src tests --standard=PSR12",
         "fixcode": "phpcbf src tests --standard=PSR12",
         "test": "phpunit",
+        "full-test": "phpunit --testdox --colors=always",
         "tests": "phpunit",
         "test-coverage": "phpunit --coverage-html build/coverage",
         "check-cs": "ecs check",
