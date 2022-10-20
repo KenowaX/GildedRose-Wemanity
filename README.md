@@ -1,20 +1,38 @@
 # GildedRose Kata - PHP Version - Arthur Deryckere
 
-This version of the exercice was done using :
-
-- Ubuntu 22.04.1
-- PHP 7.4.29
-
 ## Installation
 
-Recommended:
+### Via docker
+
+Clone the repository:
+
+```shell script
+git clone git@github.com:KenowaX/GildedRose-Wemanity.git
+cd ./GildedRose-Wemanity
+```
+
+Launch the docker container via docker-compose:
+
+```shell script
+docker-compose up -d
+docker exec -ti gilded-rose-wemanity_php sh
+```
+
+Install dependencies via composer:
+
+```shell script
+composer install
+```
+
+
+### Via local installation:
 
 - [Git](https://git-scm.com/downloads)
 
 Clone the repository
 
 ```shell script
-git clone git@github.com:emilybache/GildedRose-Refactoring-Kata.git
+git clone git@github.com:KenowaX/GildedRose-Wemanity.git
 cd ./GildedRose-Wemanity/php
 ```
 
