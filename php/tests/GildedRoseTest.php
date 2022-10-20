@@ -68,14 +68,14 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($quality+1, $items[0]->quality);
     }
 
-    public function testWhenSulfurasThenQualityAndSellInDoNotDecrease()
+    public function testWhenSulfurasThenQualityAlwaysEightyAndSellInDoesNotDecrease()
     {
         $quality = 10;
         $sell_in = 10;
         $items = [new Item("Sulfuras, Hand of Ragnaros", $sell_in, $quality)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
-        $this->assertEquals($quality, $items[0]->quality);
+        $this->assertEquals(80, $items[0]->quality);
         $this->assertEquals($sell_in, $items[0]->sell_in);
     }
 
