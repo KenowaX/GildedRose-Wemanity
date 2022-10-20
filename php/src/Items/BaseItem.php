@@ -35,7 +35,23 @@ class BaseItem implements UpdatableInterface
     {
         $this
             ->updateQuality()
-            ->updateSellIn();
+            ->updateSellIn()
+            ->minQualityCheck()
+            ->maxQualityCheck();
+    }
+
+    protected function minQualityCheck(): self
+    {
+        if ($this->itemData->quality < 0)
+            $this->itemData->quality = 0;
+        return $this;
+    }
+
+    protected function maxQualityCheck(): self
+    {
+        if ($this->itemData->quality > 50)
+            $this->itemData->quality = 50;
+        return $this;
     }
 
     protected function UpdateQuality(): self

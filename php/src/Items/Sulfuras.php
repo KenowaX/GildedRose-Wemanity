@@ -25,4 +25,10 @@ class Sulfuras extends BaseItem
     {
         return $this;
     }
+
+    protected function maxQualityCheck(): self
+    {
+        $this->itemData->quality = 80;
+        return $this;
+    }
 }
