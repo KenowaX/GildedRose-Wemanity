@@ -108,4 +108,14 @@ class GildedRoseTest extends TestCase
         $gildedRose->updateQuality();
         $this->assertEquals(0, $items[0]->quality);
     }
+
+    public function testAnItemCannotHaveMoreThanFiftyQuality()
+    {
+        $quality = 100;
+        $sell_in = 10;
+        $items = [new Item("Anything", $sell_in, $quality)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(50, $items[0]->quality);
+    }
 }
