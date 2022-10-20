@@ -27,4 +27,17 @@ class GildedRoseTest extends TestCase
     {
         $this->assertClassHasAttribute("quality", Item::class);
     }
+
+    public function testWhenNextDayUpdateThenValueDecreasesByOne()
+    {
+        $quality = 1;
+        $sell_in = 1;
+        $items      = [new Item('Example', $quality, $sell_in)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($quality-1, $items[0]->quality);
+        $this->assertEquals($sell_in-1, $items[0]->sell_in);
+    }
+
+
 }
