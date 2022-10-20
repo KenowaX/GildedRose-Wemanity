@@ -39,5 +39,74 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($sell_in-1, $items[0]->sell_in);
     }
 
+    public function testWhenNextDayUpdateAndSellByPassedThenQualityValueDecreasesByTwo()
+    {
+        $quality = 2;
+        $sell_in = 0;
+        $items = [new Item('Example', $quality, $sell_in)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($quality-2, $items[0]->quality);
+    }
+
+    public function testWhenQualityIsZeroThenQualityDoesNotLower()
+    {
+        $quality = 0;
+        $sell_in = 0;
+        $items = [new Item('Example', $quality, $sell_in)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($quality, $items[0]->quality);
+    }
+
+    public function testWhenAgedBrieThenQualityIncreases()
+    {
+        $quality = 10;
+        $items = [new Item("Aged Brie", 10, $quality)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($quality+1, $items[0]->quality);
+    }
+
+    public function testWhenSulfurasThenQualityAndSellInDoNotDecrease()
+    {
+        $quality = 10;
+        $sell_in = 10;
+        $items = [new Item("Sulfuras, Hand of Ragnaros", $sell_in, $quality)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($quality, $items[0]->quality);
+        $this->assertEquals($sell_in, $items[0]->sell_in);
+    }
+
+    public function testWhenBackstageTicketPassesAfterTenDaysThenQualityIncreaseByTwo()
+    {
+        $quality = 10;
+        $sell_in = 10;
+        $items = [new Item("Backstage passes to a TAFKAL80ETC concert", $sell_in, $quality)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($quality+2, $items[0]->quality);
+    }
+
+    public function testWhenBackstageTicketPassesAfterFiveDaysThenQualityIncreasesByThree()
+    {
+        $quality = 10;
+        $sell_in = 5;
+        $items = [new Item("Backstage passes to a TAFKAL80ETC concert", $sell_in, $quality)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($quality+3, $items[0]->quality);
+    }
+
+    public function testWhenBackstageTicketPassedThenQualityBecomesZero()
+    {
+        $quality = 10;
+        $sell_in = 0;
+        $items = [new Item("Backstage passes to a TAFKAL80ETC concert", $sell_in, $quality)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(0, $items[0]->quality);
+    }
 
 }
