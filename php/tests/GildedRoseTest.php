@@ -22,4 +22,9 @@ class GildedRoseTest extends TestCase
     {
         $this->assertClassHasAttribute("sell_in", Item::class);
     }
+
+    public function testAllItemsHaveAQualityValue()
+    {
+        $this->assertClassHasAttribute("quality", Item::class);
+    }
 }
