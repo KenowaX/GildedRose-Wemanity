@@ -17,4 +17,9 @@ class GildedRoseTest extends TestCase
         $gildedRose->updateQuality();
         $this->assertSame('fixme', $items[0]->name);
     }
+
+    public function testAllItemsHaveASellInValue()
+    {
+        $this->assertClassHasAttribute("sell_in", Item::class);
+    }
 }
