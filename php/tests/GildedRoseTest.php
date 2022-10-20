@@ -18,17 +18,17 @@ class GildedRoseTest extends TestCase
         $this->assertSame('fixme', $items[0]->name);
     }
 
-    public function testAllItemsHaveASellInValue()
+    public function testAllItemsHaveASellInValue(): void
     {
         $this->assertClassHasAttribute("sell_in", Item::class);
     }
 
-    public function testAllItemsHaveAQualityValue()
+    public function testAllItemsHaveAQualityValue(): void
     {
         $this->assertClassHasAttribute("quality", Item::class);
     }
 
-    public function testWhenNextDayUpdateThenValueDecreasesByOne()
+    public function testWhenNextDayUpdateThenValueDecreasesByOne(): void
     {
         $quality = 1;
         $sell_in = 1;
@@ -39,7 +39,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($sell_in-1, $items[0]->sell_in);
     }
 
-    public function testWhenNextDayUpdateAndSellByPassedThenQualityValueDecreasesByTwo()
+    public function testWhenNextDayUpdateAndSellByPassedThenQualityValueDecreasesByTwo(): void
     {
         $quality = 2;
         $sell_in = 0;
@@ -49,7 +49,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($quality-2, $items[0]->quality);
     }
 
-    public function testWhenQualityIsZeroThenQualityDoesNotLower()
+    public function testWhenQualityIsZeroThenQualityDoesNotLower(): void
     {
         $quality = 0;
         $sell_in = 0;
@@ -59,7 +59,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($quality, $items[0]->quality);
     }
 
-    public function testWhenAgedBrieThenQualityIncreases()
+    public function testWhenAgedBrieThenQualityIncreases(): void
     {
         $quality = 10;
         $items = [new Item("Aged Brie", 10, $quality)];
@@ -68,7 +68,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($quality+1, $items[0]->quality);
     }
 
-    public function testWhenSulfurasThenQualityAlwaysEightyAndSellInDoesNotDecrease()
+    public function testWhenSulfurasThenQualityAlwaysEightyAndSellInDoesNotDecrease(): void
     {
         $quality = 10;
         $sell_in = 10;
@@ -79,7 +79,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($sell_in, $items[0]->sell_in);
     }
 
-    public function testWhenBackstageTicketPassesAfterTenDaysThenQualityIncreaseByTwo()
+    public function testWhenBackstageTicketPassesAfterTenDaysThenQualityIncreaseByTwo(): void
     {
         $quality = 10;
         $sell_in = 10;
@@ -89,7 +89,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($quality+2, $items[0]->quality);
     }
 
-    public function testWhenBackstageTicketPassesAfterFiveDaysThenQualityIncreasesByThree()
+    public function testWhenBackstageTicketPassesAfterFiveDaysThenQualityIncreasesByThree(): void
     {
         $quality = 10;
         $sell_in = 5;
@@ -99,7 +99,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals($quality+3, $items[0]->quality);
     }
 
-    public function testWhenBackstageTicketPassedThenQualityBecomesZero()
+    public function testWhenBackstageTicketPassedThenQualityBecomesZero(): void
     {
         $quality = 10;
         $sell_in = 0;
@@ -109,7 +109,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals(0, $items[0]->quality);
     }
 
-    public function testAnItemCannotHaveMoreThanFiftyQuality()
+    public function testAnItemCannotHaveMoreThanFiftyQuality(): void
     {
         $quality = 100;
         $sell_in = 10;
@@ -119,7 +119,7 @@ class GildedRoseTest extends TestCase
         $this->assertEquals(50, $items[0]->quality);
     }
 
-    public function testAConjuredItemLosesTwiceTheQuality()
+    public function testAConjuredItemLosesTwiceTheQuality(): void
     {
         $quality = 10;
         $sell_in = 3;

@@ -6,6 +6,6 @@ namespace GildedRose\Items;
 
 interface UpdatableInterface
 {
-    public function Update();
-    public function __toString();
+    public function Update(): void;
+    public function __toString(): string;
 }

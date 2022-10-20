@@ -38,7 +38,7 @@ class BaseItem implements UpdatableInterface
         return stripos($itemData->name, 'conjured') !== false;
     }
 
-    public function Update()
+    public function Update(): void
     {
         if ($this->isConjured)
             $this->updateQuality();
@@ -80,6 +80,6 @@ class BaseItem implements UpdatableInterface
 
     public function __toString(): string
     {
-        return $this->item->__toString();
+        return $this->itemData->__toString();
     }
 }

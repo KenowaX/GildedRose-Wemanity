@@ -18,6 +18,7 @@ class BackstagePasses extends BaseItem
         foreach($this->qualityOverSellIn as $sellLimit => $upQuality)
             if ($this->itemData->sell_in <= $sellLimit)
                 return $this->SetQuality($upQuality);
+        return $this;
     }
 
     private function SetQuality(int $upQuality): self
